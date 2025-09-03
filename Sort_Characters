@@ -1,0 +1,32 @@
+from collections import Counter
+def frequencysort(s):
+    # Count frequency of each character
+    d = Counter(s)
+    
+    # Sort characters by frequency (high to low)
+    u_d = sorted(d.items(), key=lambda x: -x[1])
+    
+    result = ""
+    for key, value in u_d:
+        # Add character 'value' times
+        result += key * value
+    
+    # Return final string
+    return result
+
+# Take input
+s = input("Enter a string: ")
+print(frequencysort(s))
+
+
+
+
+
+
+
+Ask ChatGPT
+
+
+
+
+
