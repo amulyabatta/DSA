@@ -1,0 +1,12 @@
+from typing import List
+class Solution:
+    def removeDuplicates(self, arr: List[int]) -> int:
+        if not arr:
+            return 0
+        i = 0   # slow pointer (last unique index)
+        for j in range(1, len(arr)):  # fast pointer
+            if arr[j] != arr[i]:  # new unique element
+                i += 1
+                arr[i] = arr[j]  # put unique element in the next slot
+
+        return i + 1   # length of unique elements
