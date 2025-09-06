@@ -1,0 +1,11 @@
+arr = list(map(int, input().split()))  # input array
+n = len(arr)
+k = int(input())  # element to find
+
+# search for k in array
+for i in range(n):
+    if arr[i] == k:   # if element found
+        print(i)      # print index
+        break
+else:
+    print("-1")       # if not found
