@@ -1,0 +1,33 @@
+arr1 = list(map(int, input().split()))   # first sorted array
+arr2 = list(map(int, input().split()))   # second sorted array
+
+union = []   # to store union of both arrays
+n1 = len(arr1)
+n2 = len(arr2)
+i = 0
+j = 0
+
+# merge both arrays while checking duplicates
+while i < n1 and j < n2:
+    if arr1[i] <= arr2[j]:
+        if arr1[i] not in union:   # add only if not already in union
+            union.append(arr1[i])
+        i += 1
+    else:
+        if arr2[j] not in union:
+            union.append(arr2[j])
+        j += 1
+
+# add remaining elements of arr2
+while j < n2:
+    if arr2[j] not in union:
+        union.append(arr2[j])
+    j += 1
+
+# add remaining elements of arr1
+while i < n1:
+    if arr1[i] not in union:
+        union.append(arr1[i])
+    i += 1
+
+print(union)   # final union of both arrays
