@@ -1,0 +1,16 @@
+arr = list(map(int, input().split()))   
+n = len(arr)                           
+
+count = 0       # to count consecutive 1's
+max_count = 0   # to store maximum consecutive 1's
+
+for i in range(n):
+    if arr[i] == 1:     # if element is 1
+        count += 1      # increase current count
+    else:               # if element is 0
+        count = 0       # reset count
+    
+    # update maximum consecutive 1's found so far
+    max_count = max(count, max_count)
+
+print(max_count)  
