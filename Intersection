@@ -1,0 +1,20 @@
+arr1 = list(map(int, input().split()))   # first array
+arr2 = list(map(int, input().split()))   # second array
+ans = []   # to store common elements
+i = 0
+j = 0
+n1 = len(arr1)
+n2 = len(arr2)
+
+# traverse both arrays
+while i < n1 and j < n2:
+    if arr1[i] < arr2[j]:
+        i += 1   # move forward in arr1
+    elif arr2[j] < arr1[i]:
+        j += 1   # move forward in arr2
+    else:
+        ans.append(arr1[i])  # common element found
+        i += 1
+        j += 1
+
+print(ans)   # print intersection
