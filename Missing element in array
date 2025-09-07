@@ -8,4 +8,4 @@ for i in range(n-1):          # loop runs only till n-2
     XOR1 = XOR1 ^ (i+1)       # XOR of numbers 1..n-1
 
 XOR1 = XOR1 ^ n               # add last number n
-print(XOR1 - XOR2)
+print(XOR1 ^ XOR2)
