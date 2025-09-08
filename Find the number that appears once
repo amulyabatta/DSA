@@ -1,0 +1,14 @@
+arr = list(map(int, input().split()))
+n = len(arr)
+
+# Initialize XOR as 0
+XOR = 0
+
+# Traverse through all elements in the array
+for i in range(n):
+    # XOR the current element with the result
+    # Property: a ^ a = 0, a ^ 0 = a
+    XOR = XOR ^ arr[i]
+
+# Print the final result (the element that appears only once)
+print(XOR)
