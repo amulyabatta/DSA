@@ -1,0 +1,25 @@
+arr = list(map(int, input().split()))   # input array
+n = len(arr)
+k = int(input())   # target sum
+max_len = 0        # store maximum length of subarray
+sum = 0            # running prefix sum
+presummap = {}     # dictionary to store first index of each prefix sum
+
+for i in range(n):
+    sum += arr[i]   # add current element to running sum
+
+    # Case 1: If entire subarray from 0..i has sum = k
+    if sum == k:
+        max_len = max(max_len, i + 1)
+
+    # Case 2: Check if there exists a prefix sum (sum - k) seen before
+    rem = sum - k
+    if rem in presummap:
+        length = i - presummap[rem]   # subarray length
+        max_len = max(max_len, length)
+
+    # Case 3: Store prefix sum in map (only first occurrence to maximize length)
+    if sum not in presummap:
+        presummap[sum] = i
+
+print(max_len)
