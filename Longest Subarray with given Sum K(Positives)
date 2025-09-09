@@ -1,0 +1,13 @@
+arr = list(map(int, input().split()))
+n = len(arr)
+k = int(input())   # target sum
+
+max_len = 0        # stores maximum length of subarray with sum = k
+sum = arr[0]       # current subarray sum
+left, right = 0, 0 # sliding window pointers
+
+while right < n:
+    # Shrink window from the left if sum becomes greater than k
+    while left < right and sum > k:
+        sum -= arr[left]
+        left += 1
