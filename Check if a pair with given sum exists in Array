@@ -1,0 +1,14 @@
+arr = list(map(int, input().split()))   # input array
+n = len(arr)
+target = int(input())                   # target sum
+hashMap = {}                            # store value:index pairs
+
+for i in range(n):
+    more = target - arr[i]              # number needed to reach target
+
+    if more in hashMap:                 # if complement exists, pair found
+        print(i, hashMap[more])
+    elif more not in hashMap:           # store current number with its index
+        hashMap[arr[i]] = i
+    else:                               # if not found
+        print("not found")
