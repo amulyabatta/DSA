@@ -1,0 +1,14 @@
+dict = {}   # dictionary to store frequency
+nums = list(map(int, input().split()))  # input list
+
+# count frequency of each number
+for i in range(len(nums)):
+    value = nums[i]
+    if value not in dict:
+        dict[value] = 1    # first time element appears
+    else:
+        dict[value] += 1   # increase count if already present
+
+# print each number and its frequency
+for x in dict:
+    print(x, dict[x])
