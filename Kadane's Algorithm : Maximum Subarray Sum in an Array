@@ -1,0 +1,19 @@
+arr = list(map(int, input().split()))   # input array
+n = len(arr)
+
+maxi = float('-inf')   # store maximum sum (start with -infinity)
+sum = 0                # current subarray sum
+
+for i in range(n):
+    sum += arr[i]      # add current element to sum
+    
+    if sum > maxi:     # update maximum if current sum is greater
+        maxi = sum
+    
+    if sum < 0:        # if sum becomes negative, reset to 0
+        sum = 0
+
+if maxi < 0:           # if all numbers are negative
+    print("0")
+
+print(maxi)            # print maximum subarray sum
