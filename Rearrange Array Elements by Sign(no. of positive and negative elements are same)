@@ -1,0 +1,17 @@
+arr = list(map(int, input().split()))
+n = len(arr)
+
+ans = [0] * n     # result array of size n
+pos = 0           # index for positive numbers (even positions)
+neg = 1           # index for negative numbers (odd positions)
+
+# Place positives at even indices, negatives at odd indices
+for i in range(n):
+    if arr[i] > 0:       # if positive
+        ans[pos] = arr[i]
+        pos += 2
+    else:                # if negative
+        ans[neg] = arr[i]
+        neg += 2
+
+print(ans)
