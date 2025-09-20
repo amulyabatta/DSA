@@ -1,0 +1,10 @@
+dict={}
+array=input()
+char=input()
+for i in range(len(array)):
+    value=array[i]
+    if value not in dict:
+        dict[value]=1
+    else:
+        dict[value]+=1
+print(dict)
