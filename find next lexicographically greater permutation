@@ -1,0 +1,26 @@
+arr = list(map(int, input().split()))
+n = len(arr)
+
+bp = -1   # breakpoint index (where arr[i] < arr[i+1])
+
+# Step 1: Find the breakpoint from right side
+for i in range(n-2, -1, -1):
+    if arr[i] < arr[i+1]:
+        bp = i
+        break   # stop after finding first breakpoint
+
+# Step 2: If no breakpoint → array is in descending order
+if bp == -1:
+    arr.reverse()         # reverse to get smallest permutation
+    print(arr)
+else:
+    # Step 3: Find element just greater than arr[bp] (from right side)
+    for i in range(n-1, bp, -1):
+        if arr[i] > arr[bp]:
+            arr[i], arr[bp] = arr[bp], arr[i]   # swap
+            break
+
+    # Step 4: Reverse the part after breakpoint
+    arr[bp+1:] = reversed(arr[bp+1:])
+
+    print(arr)
