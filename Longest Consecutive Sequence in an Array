@@ -1,0 +1,25 @@
+arr = list(map(int, input().split()))
+n = len(arr)
+
+longest = 1    # Stores the length of the longest consecutive sequence
+st = set()     # Set to store unique elements
+
+# Add all elements of the array to the set
+for i in range(n):
+    st.add(arr[i])
+
+# Check each number in the set
+for num in st:
+    # Start counting only if (num - 1) is not in the set
+    if num - 1 not in st:
+        c = 1       # Current sequence length
+        x = num     # Start number of the sequence
+        
+        # Count how long the sequence continues
+        while x + 1 in st:
+            x += 1
+            c += 1
+        
+        # Update longest sequence length
+        longest = max(longest, c)
+print(longest)
