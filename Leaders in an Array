@@ -1,0 +1,14 @@
+arr = list(map(int, input().split()))
+n = len(arr)
+
+ans = []                # To store leaders
+leader = float('-inf')  # Initialize with very small value
+
+# Traverse from right to left
+for i in range(n - 1, -1, -1):
+    if arr[i] > leader:     # If current element is greater than all to its right
+        leader = arr[i]     # Update leader
+        ans.append(leader)  # Add to answer list
+
+ans.reverse()   # Reverse to maintain left-to-right order
+print(ans)    
