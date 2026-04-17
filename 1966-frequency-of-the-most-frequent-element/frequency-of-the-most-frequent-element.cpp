@@ -14,6 +14,6 @@ public:
         ans=max(ans,static_cast<long>(r-l+1));
         r++;
         }
-        return static_cast<long>(ans);
+        return ans;
     }
 };
