@@ -7,12 +7,8 @@ public:
             sum+=nums[i];
         }
         int max_sum=sum;
-        int l=0,r=k;
         for(int i=k;i<n;i++){
-            sum-=nums[l];
-            sum+=nums[r];
-            l++;
-            r++;
+            sum+=nums[i]-nums[i-k];
             max_sum=max(max_sum,sum);
         }
         return static_cast<double>(max_sum)/k;
