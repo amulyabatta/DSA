@@ -8,7 +8,7 @@ public:
         }
         int max_sum=sum;
         int l=0,r=k;
-        for(int i=k;i<n;i++){
+        while(r<n){
             sum-=nums[l];
             sum+=nums[r];
             l++;
