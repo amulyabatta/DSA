@@ -3,13 +3,14 @@ public:
     int subarraySum(vector<int>& nums, int k) {
         unordered_map<int,int> mp;
         mp[0]=1;
-        int prefixSum=0,count=0;
+        int sum=0,count=0;
         for(auto num : nums){
-            prefixSum+=num; 
-            if(mp.find(prefixSum-k)!=mp.end()){
-                count+=mp[prefixSum-k];
+            sum+=num;
+            int prefixSum=sum-k;
+            if(mp.find(prefixSum)!=mp.end()){
+                count+=mp[prefixSum];
             }
-            mp[prefixSum]++;
+            mp[sum]++;
         }
         return count;
         
